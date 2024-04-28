@@ -1,6 +1,4 @@
 ﻿  Game.cpp
-C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Game.cpp(4,8): error C2143: syntax error: missing ';' before '*'
-C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Game.cpp(4,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Game.cpp(4,13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-  Tilemap.cpp
+  WizardTime.cpp
   Generating Code...
+  WizardTime.vcxproj -> C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\x64\Debug\WizardTime.exe

@@ -128,7 +128,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Gameworld.cpp" />
+    <ClCompile Include="Obj.cpp" />
+    <ClCompile Include="Splashscreen.cpp" />
     <ClCompile Include="Tilemap.cpp" />
+    <ClCompile Include="UI.cpp" />
     <ClCompile Include="WizardTime.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -136,7 +140,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Gameworld.h" />
+    <ClInclude Include="Obj.h" />
+    <ClInclude Include="Splashscreen.h" />
     <ClInclude Include="Tilemap.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

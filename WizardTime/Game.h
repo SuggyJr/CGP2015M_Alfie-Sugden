@@ -4,9 +4,15 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
+#include <fstream>
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
+
+#include "Splashscreen.h"
+#include "Tilemap.h"
+#include "Gameworld.h"
 
 using namespace std;
 
@@ -22,14 +28,18 @@ public:
 	void render();
 	void input();
 
-	void renderSplashScreen();
+	static SDL_Renderer* renderer;
 
 private:
+	int frameTime;
+	int fpsCount;
+
 	bool isFullscreen;
 	bool isRunning;
 
 	SDL_Window* window;
-	SDL_Renderer* renderer;
+
+	Uint32 Startframe;
 };
 
 #endif // !GAME
