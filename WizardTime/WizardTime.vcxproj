@@ -132,6 +132,7 @@
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="Splashscreen.cpp" />
     <ClCompile Include="Tilemap.cpp" />
+    <ClCompile Include="Timelimit.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="V2D.cpp" />
     <ClCompile Include="WizardTime.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="Obj.h" />
     <ClInclude Include="Splashscreen.h" />
     <ClInclude Include="Tilemap.h" />
+    <ClInclude Include="Timelimit.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="V2D.h" />
   </ItemGroup>

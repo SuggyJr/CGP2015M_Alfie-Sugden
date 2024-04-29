@@ -2,6 +2,7 @@
 
 SDL_Renderer* Game::renderer = nullptr;
 Gameworld* gW = new Gameworld();
+UI* countdown;
 
 Game::Game() : fpsCount(0)
 {
@@ -58,6 +59,10 @@ void Game::init()
 	Splashscreen ss(renderer);
 	gW->init(renderer);
 
+	seconds = 0;
+	time = 60;
+	countdown = new UI("00:00", 640, 480, TTF_OpenFont("Assets/Font.ttf", 100));
+
 	loop();
 }
 
@@ -70,22 +75,42 @@ void Game::loop()
 
 	while (isRunning)
 	{
+		timelimit.resetTicks();
 		Startframe = SDL_GetTicks();
+		
 		input();
 		update();
 		render();
+		
 		frameTime = SDL_GetTicks() - Startframe;
 		fpsCount = 1000 / (SDL_GetTicks() - Startframe);
+		
 		if (frameDelay > frameTime)
 		{
 			SDL_Delay(frameDelay - frameTime);
 		}
+		
+		if (timelimit.getTicks() < D_TIME)
+		{
+			SDL_Delay(D_TIME - timelimit.getTicks());
+			seconds--;
+
+			if (seconds <= 0)
+			{
+				time--;
+				seconds = 60;
+			}
+		}
 	}
+	return;
 }
 
 void Game::update()
 {
 	gW->update();
+	string timeStr = "00:" + to_string(time);
+	const char* timeChar = timeStr.c_str();
+	countdown->update(timeChar);
 }
 
 void Game::render()
@@ -123,6 +148,8 @@ void Game::render()
 	SDL_RenderCopy(renderer, texture, NULL, &textRect);
 
 	gW->render(renderer);
+
+	countdown->renderer(renderer);
 
 	SDL_FreeSurface(surface);
 	SDL_DestroyTexture(texture);

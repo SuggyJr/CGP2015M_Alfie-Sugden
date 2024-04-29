@@ -12,6 +12,7 @@
 
 #include "Splashscreen.h"
 #include "Gameworld.h"
+#include "Timelimit.h"
 
 using namespace std;
 
@@ -32,6 +33,10 @@ public:
 private:
 	int frameTime;
 	int fpsCount;
+	int seconds;
+	int time;
+	const int D_TIME = 15;
+	Timelimit timelimit;
 
 	bool isFullscreen;
 	bool isRunning;
