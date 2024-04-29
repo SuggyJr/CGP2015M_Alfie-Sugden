@@ -18,6 +18,20 @@ void Obj::setImage(string filename, SDL_Renderer* renderer)
 	texture = SDL_CreateTextureFromSurface(renderer, surface);
 }
 
+void Obj::setDestination(V2D vector)
+{
+	destination.x = vector.x;
+	destination.y = vector.y;
+}
+
+void Obj::setDestination(V2D vector, int w, int h)
+{
+	destination.x = vector.x;
+	destination.y = vector.y;
+	destination.w = w;
+	destination.h = h;
+}
+
 void Obj::setSource(int x, int y, int w, int h)
 {
 	source.x = x;

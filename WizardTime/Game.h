@@ -11,7 +11,6 @@
 #include <SDL_image.h>
 
 #include "Splashscreen.h"
-#include "Tilemap.h"
 #include "Gameworld.h"
 
 using namespace std;
@@ -38,6 +37,7 @@ private:
 	bool isRunning;
 
 	SDL_Window* window;
+	SDL_Event event;
 
 	Uint32 Startframe;
 };

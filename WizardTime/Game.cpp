@@ -93,8 +93,6 @@ void Game::render()
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
 
-	gW->render(renderer);
-
 	SDL_Color textColor = { 255, 255, 255 };
 	TTF_Font* font = TTF_OpenFont("Assets/Font.ttf", 10);
 	if (!font)
@@ -124,6 +122,8 @@ void Game::render()
 	SDL_Rect textRect = { 10, 10, surface->w, surface->h }; 
 	SDL_RenderCopy(renderer, texture, NULL, &textRect);
 
+	gW->render(renderer);
+
 	SDL_FreeSurface(surface);
 	SDL_DestroyTexture(texture);
 	TTF_CloseFont(font);
@@ -133,9 +133,10 @@ void Game::render()
 
 void Game::input()
 {
-	SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
+		gW->input(Game::event);
+
 		if (event.type == SDL_QUIT)
 		{
 			isRunning = false;

@@ -12,7 +12,7 @@ Gameworld::Gameworld()
 
 void Gameworld::init(SDL_Renderer* renderer)
 {
-	map->loadMap("Assets/TestMap.txt", renderer);
+	loadLevel(renderer);
 }
 
 void Gameworld::input(SDL_Event event)
@@ -28,4 +28,9 @@ void Gameworld::update()
 void Gameworld::render(SDL_Renderer* renderer)
 {
 	map->drawMap(renderer);
+}
+
+void Gameworld::loadLevel(SDL_Renderer* renderer)
+{
+	map->loadMap("Assets/TestMap.txt", renderer);
 }

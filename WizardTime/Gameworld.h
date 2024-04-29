@@ -13,11 +13,12 @@ class Gameworld
 {
 public:
 	Gameworld();
-	void init(SDL_Renderer* renderer);
 	
+	void init(SDL_Renderer* renderer);
 	void input(SDL_Event event);
 	void update();
 	void render(SDL_Renderer* renderer);
+	void loadLevel(SDL_Renderer* renderer);
 
 	bool getKeys[maxKeys];
 
