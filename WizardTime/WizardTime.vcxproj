@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Endscreen.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Gameworld.cpp" />
     <ClCompile Include="Obj.cpp" />
@@ -142,6 +143,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Endscreen.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Gameworld.h" />
     <ClInclude Include="Obj.h" />

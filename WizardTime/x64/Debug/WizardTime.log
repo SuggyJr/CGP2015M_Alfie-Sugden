@@ -1,3 +1,6 @@
-﻿  Game.cpp
+﻿  Endscreen.cpp
+  Game.cpp
 C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Game.cpp(85,18): warning C4018: '<': signed/unsigned mismatch
+  WizardTime.cpp
+  Generating Code...
   WizardTime.vcxproj -> C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\x64\Debug\WizardTime.exe

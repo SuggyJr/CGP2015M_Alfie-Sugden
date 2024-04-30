@@ -13,6 +13,7 @@
 #include "Splashscreen.h"
 #include "Gameworld.h"
 #include "Timelimit.h"
+#include "Endscreen.h"
 
 using namespace std;
 

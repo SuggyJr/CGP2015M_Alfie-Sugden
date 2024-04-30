@@ -96,6 +96,8 @@ void Game::loop()
 		}
 		if (time == 0)
 		{
+			Endscreen es(renderer);
+			SDL_Delay(2000);
 			isRunning = false;
 		}
 	}
