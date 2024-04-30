@@ -8,7 +8,7 @@ class Tilemap : public Obj
 public:
     void loadMap(const char* filename, SDL_Renderer* renderer);
     void drawMap(SDL_Renderer* renderer);
-    void drawTiles(Obj o, SDL_Renderer* renderer);
+    void drawTiles(Obj obj, SDL_Renderer* renderer);
     
     int getDestinationX() const { return destination.x; }
     int getDestinationY() const { return destination.y; }

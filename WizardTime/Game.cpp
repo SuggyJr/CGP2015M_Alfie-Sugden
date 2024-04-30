@@ -5,7 +5,7 @@ Gameworld* gW = new Gameworld();
 UI* countdown;
 SDL_Event event;
 
-Game::Game() : fpsCount(0)
+Game::Game()
 {
 	init();
 }
@@ -58,19 +58,20 @@ void Game::init()
 	isRunning = true;
 
 	Splashscreen ss(renderer);
+	SDL_Delay(2000);
+	SDL_RenderClear(renderer);
+
 	gW->init(renderer);
 
-	seconds = 60;
+	seconds = 0;
 	time = 60;
-	countdown = new UI("00:00", 640, 480, TTF_OpenFont("Assets/Font.ttf", 100));
+	countdown = new UI("00:00", 96, 48, TTF_OpenFont("Assets/Font.ttf", 30));
 
 	loop();
 }
 
 void Game::loop()
 {
-	SDL_Delay(2000);
-
 	while (isRunning)
 	{
 		timelimit.resetTicks();
@@ -82,8 +83,9 @@ void Game::loop()
 		if (timelimit.getTicks() < D_TIME)
 		{
 			SDL_Delay(D_TIME - timelimit.getTicks());
+			
 			seconds--;
-			cout << seconds << "\n";
+			//cout << seconds << "\n";
 			if (seconds <= 0)
 			{
 				time--;
@@ -106,44 +108,15 @@ void Game::update()
 void Game::render()
 {
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-	SDL_RenderClear(renderer);
-
-	SDL_Color textColor = { 255, 255, 255 };
-	TTF_Font* font = TTF_OpenFont("Assets/Font.ttf", 10);
-	if (!font)
-	{
-		cout << "Failed to load font!\n";
-		return;
-	}
+	SDL_Rect rect{};
+	rect.x = rect.y = 0;
+	rect.w = 640;
+	rect.h = 480;
+	SDL_RenderFillRect(renderer, &rect);
 
 	gW->render(renderer);
 
-	string fpsText = "FPS: " + to_string(fpsCount);
-	SDL_Surface* surface = TTF_RenderText_Solid(font, fpsText.c_str(), textColor);
-	if (!surface)
-	{
-		cout << "Failed to create surface!\n" << SDL_GetError() << "\n";
-		TTF_CloseFont(font);
-		return;
-	}
-
-	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-	if (!texture)
-	{
-		cout << "Failed to create texture!\n";
-		SDL_FreeSurface(surface);
-		TTF_CloseFont(font);
-		return;
-	}
-
-	SDL_Rect textRect = { 10, 10, surface->w, surface->h }; 
-	SDL_RenderCopy(renderer, texture, NULL, &textRect);
-
 	countdown->renderer(renderer);
-
-	SDL_FreeSurface(surface);
-	SDL_DestroyTexture(texture);
-	TTF_CloseFont(font);
 
 	SDL_RenderPresent(renderer);
 }

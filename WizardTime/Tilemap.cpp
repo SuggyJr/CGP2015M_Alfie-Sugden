@@ -56,12 +56,11 @@ void Tilemap::drawMap(SDL_Renderer* renderer)
 			drawTiles(map[i], renderer);
 		}
 	}
-
 }
 
 void Tilemap::drawTiles(Obj obj, SDL_Renderer* renderer)
 {
-	SDL_Rect dest = obj.getDestination();
-	SDL_Rect src = obj.getSource();
-	SDL_RenderCopyEx(renderer, obj.getTexture(), &src, &dest, 0, NULL, SDL_FLIP_NONE);
+	SDL_Rect destination = obj.getDestination();
+	SDL_Rect source = obj.getSource();
+	SDL_RenderCopyEx(renderer, obj.getTexture(), &source, &destination, 0, NULL, SDL_FLIP_NONE);
 }

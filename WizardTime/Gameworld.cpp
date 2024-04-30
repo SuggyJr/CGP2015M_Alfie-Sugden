@@ -17,6 +17,7 @@ void Gameworld::init(SDL_Renderer* renderer)
 
 	player->setImage("Assets/Player_1.png", renderer);
 	player->setID(1);
+	player->setDestination(V2D(640,320), 32, 32);
 }
 
 void Gameworld::input(SDL_Event event)
@@ -48,9 +49,10 @@ void Gameworld::update()
 void Gameworld::render(SDL_Renderer* renderer)
 {
 	map->drawMap(renderer);
+	player->renderer(renderer);
 }
 
 void Gameworld::loadLevel(SDL_Renderer* renderer)
 {
-	map->loadMap("Assets/TestMap.txt", renderer);
+	map->loadMap("Assets/TEST_MAP.map", renderer);
 }

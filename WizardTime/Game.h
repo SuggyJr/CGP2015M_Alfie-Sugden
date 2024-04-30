@@ -31,8 +31,6 @@ public:
 	static SDL_Renderer* renderer;
 
 private:
-	int frameTime;
-	int fpsCount;
 	int seconds;
 	int time;
 	const int D_TIME = 15;
