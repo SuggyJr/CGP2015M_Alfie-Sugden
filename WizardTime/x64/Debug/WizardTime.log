@@ -1,6 +1,2 @@
 ﻿  Game.cpp
-C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Game.cpp(164,5): error C2660: 'Gameworld::input': function does not take 1 arguments
-C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Gameworld.h(18,7): message : see declaration of 'Gameworld::input'
-C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Game.cpp(164,5): message : while trying to match the argument list '(SDL_Event)'
-  WizardTime.cpp
-  Generating Code...
+  WizardTime.vcxproj -> C:\Users\alfie\Desktop\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\x64\Debug\WizardTime.exe

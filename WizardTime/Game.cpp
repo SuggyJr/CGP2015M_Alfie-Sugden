@@ -3,6 +3,7 @@
 SDL_Renderer* Game::renderer = nullptr;
 Gameworld* gW = new Gameworld();
 UI* countdown;
+SDL_Event event;
 
 Game::Game() : fpsCount(0)
 {
@@ -59,7 +60,7 @@ void Game::init()
 	Splashscreen ss(renderer);
 	gW->init(renderer);
 
-	seconds = 0;
+	seconds = 60;
 	time = 60;
 	countdown = new UI("00:00", 640, 480, TTF_OpenFont("Assets/Font.ttf", 100));
 
@@ -68,33 +69,21 @@ void Game::init()
 
 void Game::loop()
 {
-	const int  fps = 24;
-	const int frameDelay = 1000 / fps;
-
-	SDL_Delay(5000);
+	SDL_Delay(2000);
 
 	while (isRunning)
 	{
 		timelimit.resetTicks();
-		Startframe = SDL_GetTicks();
 		
 		input();
 		update();
 		render();
 		
-		frameTime = SDL_GetTicks() - Startframe;
-		fpsCount = 1000 / (SDL_GetTicks() - Startframe);
-		
-		if (frameDelay > frameTime)
-		{
-			SDL_Delay(frameDelay - frameTime);
-		}
-		
 		if (timelimit.getTicks() < D_TIME)
 		{
 			SDL_Delay(D_TIME - timelimit.getTicks());
 			seconds--;
-
+			cout << seconds << "\n";
 			if (seconds <= 0)
 			{
 				time--;
@@ -111,6 +100,7 @@ void Game::update()
 	string timeStr = "00:" + to_string(time);
 	const char* timeChar = timeStr.c_str();
 	countdown->update(timeChar);
+	//cout << time << "\n";
 }
 
 void Game::render()
@@ -125,6 +115,8 @@ void Game::render()
 		cout << "Failed to load font!\n";
 		return;
 	}
+
+	gW->render(renderer);
 
 	string fpsText = "FPS: " + to_string(fpsCount);
 	SDL_Surface* surface = TTF_RenderText_Solid(font, fpsText.c_str(), textColor);
@@ -147,8 +139,6 @@ void Game::render()
 	SDL_Rect textRect = { 10, 10, surface->w, surface->h }; 
 	SDL_RenderCopy(renderer, texture, NULL, &textRect);
 
-	gW->render(renderer);
-
 	countdown->renderer(renderer);
 
 	SDL_FreeSurface(surface);
@@ -162,7 +152,7 @@ void Game::input()
 {
 	while (SDL_PollEvent(&event))
 	{
-		gW->input(Game::event);
+		gW->input(event);
 
 		if (event.type == SDL_QUIT)
 		{

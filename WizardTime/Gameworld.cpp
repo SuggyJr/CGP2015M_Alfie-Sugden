@@ -19,7 +19,7 @@ void Gameworld::init(SDL_Renderer* renderer)
 	player->setID(1);
 }
 
-void Gameworld::input(SDL_Event event, SDL_Renderer* renderer)
+void Gameworld::input(SDL_Event event)
 {
 	if (event.type == SDL_KEYDOWN && event.key.repeat == NULL)
 	{
@@ -27,15 +27,12 @@ void Gameworld::input(SDL_Event event, SDL_Renderer* renderer)
 		{
 		case SDLK_a:
 			getKeys[SDLK_a] = true;
-			player->setImage("Assets/Player_1F.png",renderer);
 			break;
 		case SDLK_d:
 			getKeys[SDLK_d] = true;
-			player->setImage("Assets/Player_1.png", renderer);
 			break;
 		case SDLK_SPACE:
 			getKeys[SDLK_SPACE] = true;
-			player->setImage("Assets/Player_FIRE.png", renderer);
 			break;
 		default:
 			break;

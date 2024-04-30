@@ -42,7 +42,6 @@ private:
 	bool isRunning;
 
 	SDL_Window* window;
-	SDL_Event event;
 
 	Uint32 Startframe;
 };
