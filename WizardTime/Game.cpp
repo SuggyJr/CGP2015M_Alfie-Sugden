@@ -74,23 +74,29 @@ void Game::loop()
 {
 	while (isRunning)
 	{
-		timelimit.resetTicks();
-		
+		Uint32 currentTicks = SDL_GetTicks(); 
+
 		input();
 		update();
 		render();
-		
-		if (timelimit.getTicks() < D_TIME)
+
+		Uint32 frameTicks = SDL_GetTicks() - currentTicks; 
+
+		if (frameTicks < D_TIME)
 		{
-			SDL_Delay(D_TIME - timelimit.getTicks());
-			
-			seconds--;
-			//cout << seconds << "\n";
-			if (seconds <= 0)
-			{
-				time--;
-				seconds = 60;
-			}
+			SDL_Delay(D_TIME - frameTicks);
+		}
+
+		seconds--;
+		cout << time << "\n";
+		if (seconds <= 0)
+		{
+			time--;
+			seconds = 59;
+		}
+		if (time == 0)
+		{
+			isRunning = false;
 		}
 	}
 	return;

@@ -12,7 +12,7 @@ public:
 	Timelimit();
 	
 	void resetTicks();
-	const int getTicks();
+	int getTicks() const;
 
 private:
 	int startTicks;

@@ -33,7 +33,7 @@ public:
 private:
 	int seconds;
 	int time;
-	const int D_TIME = 15;
+	const int D_TIME = 0;
 	Timelimit timelimit;
 
 	bool isFullscreen;

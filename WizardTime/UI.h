@@ -17,10 +17,9 @@ public:
 
 	void update(const char* words);
 	void renderer(SDL_Renderer* renderer);
-
 	int x = 0;
 	int y = 0;
-
+	
 	SDL_Color textColour = { 255, 255, 255 };
 	SDL_Rect rect = {};
 	SDL_Surface* surface = nullptr;

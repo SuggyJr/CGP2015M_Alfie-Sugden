@@ -10,7 +10,7 @@ void Timelimit::resetTicks()
 	startTicks = SDL_GetTicks();
 }
 
-const int Timelimit::getTicks()
+int Timelimit::getTicks() const
 {
 	return (SDL_GetTicks() - startTicks);
 }
