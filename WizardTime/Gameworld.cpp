@@ -54,5 +54,5 @@ void Gameworld::render(SDL_Renderer* renderer)
 
 void Gameworld::loadLevel(SDL_Renderer* renderer)
 {
-	map->loadMap("Assets/TEST_MAP.map", renderer);
+	map->loadMap("Assets/Map.map", renderer);
 }
