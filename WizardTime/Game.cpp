@@ -27,7 +27,7 @@ void Game::init()
 		return;
 	}
 
-	window = SDL_CreateWindow("WIZARD TIME", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
+	window = SDL_CreateWindow("CGP2015M - Alfie Sugden - 26584784", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
 	if (!window)
 	{
 		cout << "Window creation failed: " << SDL_GetError() << endl;
@@ -65,7 +65,7 @@ void Game::init()
 
 	seconds = 0;
 	time = 60;
-	countdown = new UI("00:00", 96, 48, TTF_OpenFont("Assets/Font.ttf", 30));
+	countdown = new UI("00:00", 150, 35, TTF_OpenFont("Assets/Font.ttf", 25));
 
 	loop();
 }
@@ -104,31 +104,6 @@ void Game::loop()
 	return;
 }
 
-void Game::update()
-{
-	gW->update();
-	string timeStr = "00:" + to_string(time);
-	const char* timeChar = timeStr.c_str();
-	countdown->update(timeChar);
-	//cout << time << "\n";
-}
-
-void Game::render()
-{
-	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-	SDL_Rect rect{};
-	rect.x = rect.y = 0;
-	rect.w = 640;
-	rect.h = 480;
-	SDL_RenderFillRect(renderer, &rect);
-
-	gW->render(renderer);
-
-	countdown->renderer(renderer);
-
-	SDL_RenderPresent(renderer);
-}
-
 void Game::input()
 {
 	while (SDL_PollEvent(&event))
@@ -147,4 +122,24 @@ void Game::input()
 			}
 		}
 	}
+}
+
+void Game::update()
+{
+	gW->update();
+	string timeStr = "00:" + to_string(time);
+	const char* timeChar = timeStr.c_str();
+	countdown->update(timeChar);
+}
+
+void Game::render()
+{
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	SDL_RenderClear(renderer);
+
+	gW->render(renderer);
+
+	countdown->renderer(renderer);
+
+	SDL_RenderPresent(renderer);
 }

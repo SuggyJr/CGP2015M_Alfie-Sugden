@@ -6,6 +6,8 @@
 
 #include "Obj.h"
 #include "Tilemap.h"
+#include "Entity.h"
+#include "Debug.h"
 
 #define maxKeys (256)
 
@@ -18,14 +20,19 @@ public:
 	void input(SDL_Event event);
 	void update();
 	void render(SDL_Renderer* renderer);
-	void loadLevel(SDL_Renderer* renderer);
 
 	bool getKeys[maxKeys];
 
+	Debug debug;
+
 private:
 	int speed = 10;
+	int floatingSpeed = 7;
 	bool fire = false;
-	bool playerIdle = false;
+
+	bool anim = false;
+
+	bool wall = false;
 };
 
 #endif // !GAMEWORLD_H

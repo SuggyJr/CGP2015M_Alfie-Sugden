@@ -1,59 +1,58 @@
 #include "Tilemap.h"
 
-void Tilemap::loadMap(const char* filename, SDL_Renderer* renderer)
+void Tilemap::loadTM(const char* filename, SDL_Renderer* renderer)
 {
-	if (!map.empty())
+	if (!tileMap.empty())
 	{
-		map.clear();
+		tileMap.clear();
 	}
 	
 	Obj temporary{};
-	int current, mapX, mapY, mapW, mapH;
-	ifstream file(filename);
+	int current, tileMX, tileMY, tileMW, tileMH;
+	ifstream mapFile(filename);
 	
-	if (!file.is_open())
+	if (!mapFile.is_open())
 	{
-		cout << "Cant find file\n";
 		return;
 	}
 
-	file >> mapX;
-	file >> mapY;
-	file >> mapW;
-	file >> mapH;
+	mapFile >> tileMW;
+	mapFile >> tileMH;
+	mapFile >> tileMX;
+	mapFile >> tileMY;
 
-	for (int i = 0; i < mapH; i++)
+	for (int i = 0; i < tileMH; i++)
 	{
-		for (int j = 0; j < mapW; j++)
+		for (int j = 0; j < tileMW; j++)
 		{
-			if (file.eof())
+			if (mapFile.eof())
 			{
 				return;
 			}
-			
-			file >> current;
+
+			mapFile >> current;
 			
 			if (current != 0)
 			{
 				temporary.setImage("assets/Tile_Brick_1.png", renderer);
 				temporary.setSource((current - 1) * 32, 0, 32, 32);
-				temporary.setDestination(V2D((j * 32) + mapX, (i * 32) + mapY), 32, 32);
-				temporary.makeSolid(true);
+				temporary.setDestination(V2D((j * 32) + tileMX, (i * 32) + tileMY), 32, 32);
 				temporary.setID(current);
-				map.push_back(temporary);
+				temporary.makeSolid(true);
+				tileMap.push_back(temporary);
 			}
 		}
 	}
-	file.close();
+	mapFile.close();
 }
 
-void Tilemap::drawMap(SDL_Renderer* renderer)
+void Tilemap::drawTM(SDL_Renderer* renderer)
 {
-	for (int i = 0; i < map.size(); i++)
+	for (int i = 0; i < tileMap.size(); i++)
 	{
-		if (map[i].getDestinationX() >= 0 - 32 && map[i].getDestinationY() >= 0 - 32 && map[i].getDestinationX() <= 0 + 640 + 32 && map[i].getDestinationY() <= 0 + 480 + 32)
+		if (tileMap[i].getDestinationX() >= 0 - 32 && tileMap[i].getDestinationY() >= 0 - 32 && tileMap[i].getDestinationX() <= 0 + 640 + 32 && tileMap[i].getDestinationY() <= 0 + 480 + 32)
 		{
-			drawTiles(map[i], renderer);
+			drawTiles(tileMap[i], renderer);
 		}
 	}
 }

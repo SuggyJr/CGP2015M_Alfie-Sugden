@@ -22,14 +22,12 @@ class Game
 public:
 	Game();
 	~Game();
+	
 	void init();
-
 	void loop();
 	void update();
 	void render();
 	void input();
-
-	static SDL_Renderer* renderer;
 
 private:
 	int seconds;
@@ -41,6 +39,7 @@ private:
 	bool isRunning;
 
 	SDL_Window* window;
+	static SDL_Renderer* renderer;
 
 	Uint32 Startframe;
 };
