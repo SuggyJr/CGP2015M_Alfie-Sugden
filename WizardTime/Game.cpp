@@ -127,6 +127,7 @@ void Game::input()
 void Game::update()
 {
 	gW->update();
+
 	string timeStr = "00:" + to_string(time);
 	const char* timeChar = timeStr.c_str();
 	countdown->update(timeChar);

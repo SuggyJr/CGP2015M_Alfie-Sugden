@@ -10,10 +10,7 @@ C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Entity
 C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Entity.h(22,41): error C3867: 'Entity::isCollidingRight': non-standard syntax; use '&' to create a pointer to member
 C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Game.cpp(85,18): warning C4018: '<': signed/unsigned mismatch
   Gameworld.cpp
-C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Entity.h(19,41): error C3867: 'Entity::isCollidingFloor': non-standard syntax; use '&' to create a pointer to member
-C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Entity.h(20,40): error C3867: 'Entity::isCollidingRoof': non-standard syntax; use '&' to create a pointer to member
-C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Entity.h(21,40): error C3867: 'Entity::isCollidingLeft': non-standard syntax; use '&' to create a pointer to member
-C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Entity.h(22,41): error C3867: 'Entity::isCollidingRight': non-standard syntax; use '&' to create a pointer to member
+C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Gameworld.cpp : fatal  error C1041: cannot open program database 'C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\x64\Debug\vc143.idb'; if multiple CL.EXE write to the same .PDB file, please use /FS
   WizardTime.cpp
 C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Entity.h(19,41): error C3867: 'Entity::isCollidingFloor': non-standard syntax; use '&' to create a pointer to member
 C:\Users\alfie\OneDrive\Documents\GitHub\CGP2015M_Alfie-Sugden\WizardTime\Entity.h(20,40): error C3867: 'Entity::isCollidingRoof': non-standard syntax; use '&' to create a pointer to member

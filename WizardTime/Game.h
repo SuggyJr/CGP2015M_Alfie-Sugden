@@ -14,6 +14,7 @@
 #include "Gameworld.h"
 #include "Timelimit.h"
 #include "Endscreen.h"
+#include "Entity.h"
 
 using namespace std;
 

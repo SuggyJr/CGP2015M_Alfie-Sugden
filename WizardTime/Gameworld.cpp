@@ -1,7 +1,7 @@
 #include "Gameworld.h"
 
 Entity* player = new Entity();
-Obj* enemy = new Obj();
+Entity* enemy = new Entity();
 Obj* worldMap = new Obj();
 Tilemap* tilemap = new Tilemap();
 
@@ -20,11 +20,11 @@ void Gameworld::init(SDL_Renderer* renderer)
 
 	player->setImage("Assets/PlayerSheet.png", renderer);
 	anim = player->createAnim(1, 3, 10);
-	player->setDestination(V2D(200, 200), 32, 32);
+	player->setDestination(V2D(640, 480), 32, 32);
 
 
-	//player->setImage("Assets/Enemy.png", renderer);
-	//player->setDestination(V2D(440, 200), 32, 32);
+	enemy->setImage("Assets/Enemy.png", renderer);
+	enemy->setDestination(V2D(440, 200), 32, 32);
 }
 
 void Gameworld::input(SDL_Event event)
@@ -35,24 +35,24 @@ void Gameworld::input(SDL_Event event)
 		{
 		case SDLK_w:
 			getKeys[SDLK_w] = true;
-			cout << "		W PRESSED\n";
+			cout << "	W PRESSED\n";
 			break;
 		case SDLK_a:
 			getKeys[SDLK_a] = true;
-			cout << "		A PRESSED\n";
+			cout << "	A PRESSED\n";
 			break;
 		case SDLK_s:
 			getKeys[SDLK_s] = true;
-			cout << "		S PRESSED\n";
+			cout << "	S PRESSED\n";
 			break;
 		case SDLK_d:
 			getKeys[SDLK_d] = true;
-			cout << "		D PRESSED\n";
+			cout << "	D PRESSED\n";
 			break;
 		case SDLK_SPACE:
 			getKeys[SDLK_SPACE] = true;
 			fire = true;
-			cout << "		SPACE PRESSED\n";
+			cout << "	SPACE PRESSED\n";
 			break;
 		default:
 			break;
@@ -74,6 +74,7 @@ void Gameworld::update()
 	if (player->isCollidingRight()) { if (!getKeys[SDLK_d]) { player->velocity.x = player->velocity.x - 1; if (player->velocity.x != 0) { player->velocity.x = player->velocity.x - player->velocity.x; } } }
 
 	player->entityUpdate(tilemap);
+	cout << "	GW updated\n";
 }
 
 void Gameworld::render(SDL_Renderer* renderer)
